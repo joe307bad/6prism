@@ -4,11 +4,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@nighttrax/*": ["packages/*/src"]
+      "@6prism/*": ["packages/*/services"]
     },
     "jsx": "react",
     "esModuleInterop": true,
+    "moduleResolution": "Node",
     "skipLibCheck": true,
-    "types": []
-  }
+    "types": ["node"],
+    "experimentalDecorators": true
+  },
+  "include": ["packages/**/services/*.ts", "packages/**/moleculer.config.ts"]
 }
