@@ -10,7 +10,8 @@ module.exports = {
         "prettier/prettier": "error",
         "@typescript-eslint/no-unsafe-member-access": 1,
         '@typescript-eslint/no-unsafe-assignment': 1,
-        "@typescript-eslint/no-unsafe-call": 1
+        "@typescript-eslint/no-unsafe-call": 1,
+        "@typescript-eslint/no-unsafe-return": 1
     },
     extends: [
         'eslint:recommended',

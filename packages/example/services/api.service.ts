@@ -62,23 +62,24 @@ export default class ApiService extends Moleculer.Service {
 
 	@Method
 	async authorize(ctx, route, req, res: ServerResponse) {
-		const auth = req.headers["authorization"];
-		if (typeof auth === "string" && auth.startsWith("Bearer")) {
-			// TODO how do we trust a self signed cert?
-			process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
-			const jwt = await keycloak.jwt.verify(auth.slice(7));
-
-			if (jwt) {
-				ctx.meta.user = { id: 1, name: "John Doe" };
-				return Promise.resolve(ctx);
-			} else {
-				return Promise.reject(
-					new UnAuthorizedError(Errors.ERR_INVALID_TOKEN, "")
-				);
+		// TODO how do we trust a self signed cert?
+		process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+		const auth = req?.headers["authorization"];
+		const keycloakToken = await (async () => {
+			try {
+				return await keycloak.jwt.verify((auth || "").slice(7));
+			} catch (e) {
+				return false;
 			}
-		}
-		return Promise.reject(new UnAuthorizedError(Errors.ERR_NO_TOKEN, ""));
+		})();
+
+		if (!keycloakToken)
+			return Promise.reject(
+				new UnAuthorizedError(Errors.ERR_INVALID_TOKEN, "")
+			);
+
+		ctx.meta.jwt = decodeJwt(keycloakToken.token);
+		return Promise.resolve(ctx);
 	}
 }
 
