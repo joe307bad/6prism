@@ -1,0 +1,25 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Joe Badaczewski",
+  "scripts": {
+    "dev": "webpack serve"
+  },
+  "dependencies": {
+    "preact": "^10.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-react-jsx": "^7.12.11",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "fork-ts-checker-webpack-plugin": "^6.0.7",
+    "html-webpack-plugin": "^4.5.0",
+    "typescript": "^4.1.3",
+    "webpack": "^5.10.3",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

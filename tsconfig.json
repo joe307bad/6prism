@@ -1,17 +1,17 @@
 {
   "extends": "./tsconfig.build.json",
-
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@6prism/*": ["packages/*/services"]
     },
-    "jsx": "react",
+    "jsx": "preserve",
+    "jsxFactory": "h",
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "types": ["node"],
     "experimentalDecorators": true
   },
-  "include": ["packages/**/services/*.ts", "packages/**/moleculer.config.ts"]
+  "include": ["packages/**/src/*","packages/**/services/*", "packages/**/moleculer.config.ts"]
 }
