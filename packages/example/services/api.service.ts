@@ -66,8 +66,11 @@ export default class ApiService extends Moleculer.Service {
 		process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 		const auth = req?.headers["authorization"];
 		const keycloakToken = await (async () => {
+			if (typeof auth !== "string") {
+				return false;
+			}
 			try {
-				return await keycloak.jwt.verify((auth || "").slice(7));
+				return await keycloak.jwt.verify(auth.slice(7));
 			} catch (e) {
 				return false;
 			}
