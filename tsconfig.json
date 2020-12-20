@@ -13,5 +13,13 @@
     "types": ["node"],
     "experimentalDecorators": true
   },
-  "include": ["packages/**/src/*","packages/**/services/*", "packages/**/moleculer.config.ts"]
+  "include": [
+    "packages/**/src/*",
+    "packages/**/services/*",
+    "packages/**/moleculer.config.ts",
+    "packages/backups/sixprism-backups.js"
+  ],
+  "exclude": [
+    "packages/**/webpack.config.js"
+  ]
 }

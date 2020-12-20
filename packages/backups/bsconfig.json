@@ -1,0 +1,26 @@
+{
+  "name": "backups",
+  "reason": {
+    "react-jsx": 3
+  },
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6-global"
+    }
+  ],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "bs-dependencies": [
+    "reason-react"
+  ],
+  "refmt": 3,
+  "gentypeconfig": {
+    "language": "typescript"
+  }
+}

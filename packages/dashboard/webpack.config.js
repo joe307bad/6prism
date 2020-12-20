@@ -1,57 +1,41 @@
-const path = require("path");
+const webpackMerge = require("webpack-merge");
+const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const { ProvidePlugin } = require("webpack");
 
-module.exports = {
-  entry: path.resolve(__dirname, "src/sixprism-root-config.ts"),
-  devtool: "inline-source-map",
-  mode: "development",
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    libraryTarget: 'umd',
-  },
+module.exports = (webpackConfigEnv, argv) => {
+  const orgName = "sixprism";
+  const defaultConfig = singleSpaDefaults({
+    orgName,
+    projectName: "root-config",
+    webpackConfigEnv,
+    argv,
+    disableHtmlGeneration: true,
+  });
 
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
-  },
+  const merge = webpackMerge({
+    customizeArray: webpackMerge.unique(
+        "plugins",
+        ["HtmlWebpackPlugin"],
+        (plugin) => plugin.constructor && plugin.constructor.name
+    ),
+  });
 
-  module: {
-    rules: [
+  return merge(
       {
-        test: /\.(ts|js)x?$/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/env", "@babel/typescript"]
-          },
-        },
-        exclude: /node_modules/,
+        plugins: [
+          new HtmlWebpackPlugin({
+            inject: false,
+            template: "src/index.ejs",
+            templateParameters: {
+              isLocal: true,
+              orgName,
+            },
+          }),
+        ],
       },
-    ],
-  },
-
-  plugins: [
-    // Re-generate index.html with injected script tag.
-    // The injected script tag contains a src value of the
-    // filename output defined above.
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: "./src/index.ejs",
-      templateParameters: {
-        isLocal: true,
-        orgName: 'sixprism',
+      defaultConfig,
+      {
+        // modify the webpack config however you'd like to by adding to this object
       }
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        configFile: "../../tsconfig.json",
-      },
-    })
-  ],
-  externals: ["single-spa", new RegExp(`^@sixprism/`)],
-  devServer: {
-    contentBase: "./dist",
-  },
+  );
 };

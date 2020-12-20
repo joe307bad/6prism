@@ -36,27 +36,13 @@
       "imports": {
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.3/lib/system/single-spa.min.js",
         "react": "https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js",
-        "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js"
+        "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js",
+        "@sixprism/backups": "//localhost:3079/sixprism-backups.js",
+        "@sixprism/root-config": "//localhost:3078/sixprism-root-config.js"
       }
     }
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.8.3/lib/system/single-spa.min.js" as="script">
-
-  <!-- Add your organization's prod import map URL to this script's src  -->
-  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
-
-  <% if (isLocal) { %>
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "@sixprism/backups": "http://localhost:8080/sixprism-backups.js",
-        "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-        "@sixprism/root-config": "//localhost:9000/bundle.js",
-        "@sixprism/backups": "http://localhost:8080/sixprism-backups.js"
-      }
-    }
-  </script>
-  <% } %>
 
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
@@ -80,9 +66,6 @@
         <application name="@<%- orgName %>/navbar"></application>
       </nav> -->
       <main>
-        <route default>
-          <application name="@single-spa/welcome"></application>
-        </route>
         <route default>
           <application name="@sixprism/backups"></application>
         </route>
