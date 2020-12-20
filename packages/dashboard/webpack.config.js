@@ -4,12 +4,13 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const { ProvidePlugin } = require("webpack");
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/index.tsx"),
+  entry: path.resolve(__dirname, "src/sixprism-root-config.ts"),
   devtool: "inline-source-map",
   mode: "development",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    libraryTarget: 'umd',
   },
 
   resolve: {
@@ -23,17 +24,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/env", "@babel/typescript"],
-            plugins: [
-              "@babel/proposal-class-properties",
-              [
-                "@babel/plugin-transform-react-jsx",
-                {
-                  pragma: "h",
-                  pragmaFrag: "Fragment",
-                },
-              ],
-            ],
+            presets: ["@babel/env", "@babel/typescript"]
           },
         },
         exclude: /node_modules/,
@@ -47,18 +38,19 @@ module.exports = {
     // filename output defined above.
     new HtmlWebpackPlugin({
       inject: true,
-      template: "./public/index.html",
+      template: "./src/index.ejs",
+      templateParameters: {
+        isLocal: true,
+        orgName: 'sixprism',
+      }
     }),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: "../../tsconfig.json",
       },
-    }),
-    new ProvidePlugin({
-      h: ["preact", "h"],
-    }),
+    })
   ],
-
+  externals: ["single-spa", new RegExp(`^@sixprism/`)],
   devServer: {
     contentBase: "./dist",
   },
