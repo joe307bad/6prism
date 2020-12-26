@@ -3,9 +3,9 @@
     "module": "commonjs",
     "target": "es6",
     "sourceMap": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "allowJs": true
   },
-
   "exclude": [
     "node_modules",
     "dist"

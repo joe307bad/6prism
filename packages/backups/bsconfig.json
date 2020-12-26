@@ -18,6 +18,7 @@
   "namespace": true,
   "bs-dependencies": [
     "@jsiebern/bs-material-ui",
+    "bs-fetch",
     "reason-react"
   ],
   "refmt": 3,

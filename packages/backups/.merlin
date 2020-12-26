@@ -7,6 +7,8 @@ B /Users/jbadaczewski/Source/bada/6prism/node_modules/bs-platform/lib/ocaml
 FLG -w +a-4-9-20-40-41-42-50-61-102
 S /Users/jbadaczewski/Source/bada/6prism/node_modules/@jsiebern/bs-material-ui/lib/ocaml
 B /Users/jbadaczewski/Source/bada/6prism/node_modules/@jsiebern/bs-material-ui/lib/ocaml
+S /Users/jbadaczewski/Source/bada/6prism/node_modules/bs-fetch/lib/ocaml
+B /Users/jbadaczewski/Source/bada/6prism/node_modules/bs-fetch/lib/ocaml
 S /Users/jbadaczewski/Source/bada/6prism/node_modules/reason-react/lib/ocaml
 B /Users/jbadaczewski/Source/bada/6prism/node_modules/reason-react/lib/ocaml
 S src/rescript
