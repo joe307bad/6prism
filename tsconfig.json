@@ -3,17 +3,22 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@6prism/*": ["packages/*/services"]
+      "@6prism/*": [
+        "packages/*/services"
+      ]
     },
     "jsx": "preserve",
     "jsxFactory": "h",
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "skipLibCheck": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "experimentalDecorators": true
   },
   "include": [
+    "packages/**/test/*",
     "packages/**/src/*",
     "packages/**/services/*",
     "packages/**/moleculer.config.ts",
