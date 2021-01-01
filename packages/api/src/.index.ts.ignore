@@ -39,9 +39,7 @@ const schema = appSchema({
     ]
 })
 
-// import Post from './model/Post' // ⬅️ You'll import your Models here
 
-// First, create the adapter to the underlying database:
 const adapter = new LokiJSAdapter({
     dbName: 'WatermelonDemo',
     schema: schema,
@@ -49,12 +47,10 @@ const adapter = new LokiJSAdapter({
     useWebWorker: false
 })
 
-// Then, make a Watermelon database from it!
 const database = new Database({
     adapter,
     modelClasses: [Post, Comment],
     actionsEnabled: true,
 })
 
-debugger;
-console.log(database);
+// TODO what if this was RxDb instead?
