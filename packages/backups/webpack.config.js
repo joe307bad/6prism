@@ -10,7 +10,8 @@ module.exports = (webpackConfigEnv, argv) => {
     argv
   });
 
-  return webpackMerge.smart(defaultConfig, {
-    // modify the webpack config however you'd like to by adding to this object
-  });
+  // remove unused-webpack-plugin
+  defaultConfig.plugins.splice(2, 1)
+
+  return defaultConfig;
 };

@@ -4,27 +4,12 @@
     "baseUrl": ".",
     "paths": {
       "@6prism/*": [
-        "packages/*/services"
+        "packages/*/src"
       ]
     },
-    "jsx": "preserve",
-    "jsxFactory": "h",
+    "jsx": "react",
     "esModuleInterop": true,
-    "moduleResolution": "Node",
     "skipLibCheck": true,
-    "types": [
-      "node"
-    ],
-    "experimentalDecorators": true
-  },
-  "include": [
-    "packages/**/test/*",
-    "packages/**/src/*",
-    "packages/**/services/*",
-    "packages/**/moleculer.config.ts",
-    "packages/backups/sixprism-backups.js"
-  ],
-  "exclude": [
-    "packages/**/webpack.config.js"
-  ]
+    "types": []
+  }
 }

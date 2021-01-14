@@ -19,7 +19,8 @@
   "bs-dependencies": [
     "@jsiebern/bs-material-ui",
     "bs-fetch",
-    "reason-react"
+    "reason-react",
+    "@opendevtools/rescript-hooks"
   ],
   "refmt": 3,
   "gentypeconfig": {

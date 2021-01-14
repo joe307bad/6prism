@@ -15,7 +15,9 @@ const lifecycles = singleSpaReact({
 
 export const { bootstrap, mount, unmount } = lifecycles;
 
-// https://keycloak.six.prism/auth/realms/six.prism/protocol/openid-connect/auth?scope=openid%20email%20profile&client_id=six.prism.dashboard&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_type=code
+// https://keycloak.six.prism/auth/realms/six.prism/protocol/openid-connect/auth?scope=openid%20email%20profile&client_id=six.prism.dashboard&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fredirect_uri&response_type=code
+
+// https://keycloak.six.prism/auth/realms/six.prism/protocol/openid-connect/auth?scope=openid%20email%20profile&client_id=account&state=2a03b9a6ed5a5ddeb4f8150e7ba36ebb&nonce=3c532bf9b84f520522b014815547b426&redirect_uri=https%3A%2F%2Ftautulli.six.prism%2Fredirect_uri&response_type=code
 
 // https://keycloak.six.prism/auth/realms/six.prism/protocol/openid-connect/logout
 

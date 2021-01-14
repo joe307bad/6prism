@@ -11,6 +11,8 @@ S /Users/jbadaczewski/Source/bada/6prism/node_modules/bs-fetch/lib/ocaml
 B /Users/jbadaczewski/Source/bada/6prism/node_modules/bs-fetch/lib/ocaml
 S /Users/jbadaczewski/Source/bada/6prism/node_modules/reason-react/lib/ocaml
 B /Users/jbadaczewski/Source/bada/6prism/node_modules/reason-react/lib/ocaml
+S /Users/jbadaczewski/Source/bada/6prism/node_modules/@opendevtools/rescript-hooks/lib/ocaml
+B /Users/jbadaczewski/Source/bada/6prism/node_modules/@opendevtools/rescript-hooks/lib/ocaml
 S src/rescript
 B lib/bs/src/rescript
 ####BSB GENERATED: NO EDIT}
